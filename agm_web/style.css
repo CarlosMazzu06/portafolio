@@ -1,0 +1,675 @@
+/* =========================================================
+   VARIABLES GLOBALES (Gama Ultra-Premium)
+   ========================================================= */
+:root {
+    --color-francia: #1F51FF;
+    --color-marino: #050d1a;
+    --color-naranja: #E65C00;
+    --color-blanco: #F8F9FA;
+    --color-oscuridad: #000308;
+    --color-wp: #25D366;
+
+    --fuente-titulos: 'Poppins', sans-serif;
+    --fuente-texto: 'Poppins', sans-serif;
+    --fuente-historia: 'Lora', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-texto);
+    color: var(--color-blanco);
+    background-color: var(--color-oscuridad);
+    overflow-x: hidden;
+}
+
+/* =========================================================
+   ANIMACIONES, MULTIMEDIA Y FONDOS PARALLAX
+   ========================================================= */
+.bg-multimedia {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 50%, var(--color-marino) 0%, var(--color-oscuridad) 100%);
+}
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.4;
+    animation: drift 15s infinite alternate ease-in-out;
+}
+
+.glow-1 {
+    width: 500px;
+    height: 500px;
+    background: var(--color-francia);
+    top: -100px;
+    left: -100px;
+}
+
+.glow-2 {
+    width: 600px;
+    height: 600px;
+    background: rgba(230, 92, 0, 0.4);
+    bottom: -200px;
+    right: -150px;
+    animation-duration: 20s;
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(100px, 50px) scale(1.1);
+    }
+}
+
+.particle-mesh {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Patrón de puntos para la sensación tecnológica / malla */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* =========================================================
+   HERRAMIENTAS DE SCROLL LISO Y CONTENEDORES
+   ========================================================= */
+.scroll-container {
+    height: 100vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.mundo {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 120px 5% 60px 5%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    z-index: 10;
+    position: relative;
+}
+
+/* =========================================================
+   DISEÑO ARQUITECTÓNICO GLASSMORPHISM (SUPERIOR)
+   Mejor difuminado, reflejos de luz y bordes redondeados.
+   ========================================================= */
+.glass-panel,
+.glass-card-premium {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    /* Reflejo superior */
+    border-radius: 30px;
+    /* Bordes altamente amigables */
+    padding: 3.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.02);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+}
+
+.dark-glass {
+    background: rgba(5, 13, 26, 0.7);
+}
+
+.light-glass {
+    background: rgba(255, 255, 255, 0.9);
+    color: #0a0f18;
+}
+
+.hover-grow:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    border-color: rgba(31, 81, 255, 0.5);
+}
+
+/* =========================================================
+   NAVEGACIÓN (Mejor distribución del Omnicanal)
+   ========================================================= */
+.glass-nav {
+    position: fixed;
+    top: 20px;
+    width: 95%;
+    max-width: 1300px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 25, 47, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #d0d7e5;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.nav-contacts {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-mail {
+    color: #fff;
+    opacity: 0.7;
+    transition: 0.3s;
+    display: flex;
+}
+
+.icon-mail:hover {
+    opacity: 1;
+    color: var(--color-naranja);
+    transform: scale(1.1);
+}
+
+.btn-whatsapp-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-wp);
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    transition: base 0.3s;
+}
+
+.btn-whatsapp-nav:hover {
+    background: #1ebd5a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-contacts span {
+        display: none;
+    }
+
+    .btn-whatsapp-nav {
+        padding: 0.6rem;
+    }
+}
+
+/* =========================================================
+   MUNDO 1: HERO
+   ========================================================= */
+/* Fondo Hero fotorealista eliminado para evitar bloqueos del navegador. Se usa malla. */
+.hero-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at top right, rgba(31, 81, 255, 0.1), transparent 50%);
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 900px;
+    padding: 4rem;
+}
+
+/* Arte CSS Sustituto de Imágenes Rotas */
+.css-art-box {
+    width: 100%;
+    min-height: 250px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.3);
+    margin-bottom: 2rem;
+}
+
+.box-blue {
+    border-bottom: 3px solid var(--color-francia);
+}
+
+.box-orange {
+    border-bottom: 3px solid var(--color-naranja);
+    background: rgba(5, 13, 26, 0.3);
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(230, 92, 0, 0.15);
+    color: #ffad66;
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(230, 92, 0, 0.3);
+    letter-spacing: 1.5px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+}
+
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.services-list p {
+    font-size: 1.1rem;
+    color: #a5c6ff;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: fit-content;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #ffffff, #a5c6ff, #ffffff);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.hero-content p {
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color: #cbd5e1;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--color-naranja), #ff8000);
+    color: white;
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.15rem;
+    box-shadow: 0 15px 35px rgba(230, 92, 0, 0.3);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(230, 92, 0, 0.5);
+}
+
+/* =========================================================
+   MUNDO 2: VETA AUTORIDAD (Imágenes integradas y Lora)
+   ========================================================= */
+.historia-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+    align-items: center;
+}
+
+.modern-image {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    object-fit: cover;
+}
+
+.serif-title {
+    font-family: var(--fuente-historia);
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-style: italic;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.historia-card p {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.cita-emocional {
+    font-family: var(--fuente-historia);
+    font-size: 1.4rem;
+    color: #60a5fa;
+    font-style: italic;
+    border-left: 4px solid var(--color-francia);
+    padding-left: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+    .historia-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modern-image {
+        max-height: 300px;
+    }
+}
+
+/* =========================================================
+   MUNDO 3: SALUD Y SOLUCIÓN MULTIMEDIA
+   ========================================================= */
+.salud-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    background: rgba(230, 92, 0, 0.1);
+    padding: 1rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(230, 92, 0, 0.3);
+}
+
+.salud-texto h2 {
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+}
+
+.salud-texto p {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.alert-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(239, 68, 68, 0.05);
+    border-left: 4px solid #ef4444;
+    padding: 1.5rem;
+    border-radius: 0 20px 20px 0;
+}
+
+.small-hero-img {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.text-blue {
+    color: var(--color-francia);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.btn-full {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 50px;
+    background: var(--color-francia);
+    padding: 1.2rem;
+}
+
+.btn-full:hover {
+    background: #1640d6;
+}
+
+@media (max-width: 900px) {
+    .salud-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   MUNDO 4: OMNI-CONTACTO E INTERACCIÓN
+   ========================================================= */
+.tech-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tech-header h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-bottom: 1rem;
+}
+
+.wide-demo-image {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    border-radius: 20px;
+    margin-top: 2rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   MUNDO CÓRDOBA (Clima Local)
+   ========================================================= */
+.mundo-cordoba {
+    background: linear-gradient(135deg, #0a0503 0%, #1a100c 50%, #050d1a 100%);
+    border-top: 1px solid rgba(230, 92, 0, 0.2);
+}
+
+.cordoba-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.cordoba-img img {
+    width: 100%;
+    border-radius: 30px;
+}
+
+.fallback-pattern {
+    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 20px, transparent 20px, transparent 40px);
+}
+
+@media (max-width: 900px) {
+    .cordoba-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.icon-circle {
+    display: inline-flex;
+    background: rgba(31, 81, 255, 0.1);
+    color: #60a5fa;
+    padding: 1rem;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.orange-icon {
+    background: rgba(230, 92, 0, 0.1);
+    color: var(--color-naranja);
+}
+
+.omnicontact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.whatsapp-card {
+    background: linear-gradient(135deg, var(--color-wp), #1da851);
+    color: #fff;
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.2);
+}
+
+.email-card {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.contact-card span {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+}
+
+.contact-card small {
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .omnicontact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   FORMULARIO N8N LEAD GEN
+   ========================================================= */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    font-size: 1rem;
+    font-family: var(--fuente-texto);
+    transition: 0.3s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-francia);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(31, 81, 255, 0.2);
+}
