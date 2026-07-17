@@ -2,15 +2,24 @@
    VARIABLES GLOBALES (Gama Ultra-Premium)
    ========================================================= */
 :root {
-    --color-francia: #1F51FF;
-    --color-marino: #050d1a;
-    --color-naranja: #E65C00;
-    --color-blanco: #F8F9FA;
-    --color-oscuridad: #000308;
-    --color-wp: #25D366;
+    /* Paleta Deep Slate Premium - Modern HVAC UI */
+    --color-marino: #0f172a;
+    /* Slate 900 Background */
+    --color-francia: #0ea5e9;
+    /* Cyan 500 Hielo Eléctrico */
+    --color-hielo: #e0f2fe;
+    /* Sky 100 */
+    --color-fuego: #f97316;
+    /* Orange 500 Alerta Térmica */
+    --color-oscuridad: #020617;
+    /* Slate 950 Vantablack */
+    --color-blanco: #f8fafc;
+    /* Slate 50 */
+    --color-wp: #10b981;
+    /* Emerald 500 */
 
-    --fuente-titulos: 'Poppins', sans-serif;
-    --fuente-texto: 'Poppins', sans-serif;
+    --fuente-titulos: 'Outfit', sans-serif;
+    --fuente-texto: 'Inter', sans-serif;
     --fuente-historia: 'Lora', serif;
 }
 
@@ -25,6 +34,7 @@ body {
     color: var(--color-blanco);
     background-color: var(--color-oscuridad);
     overflow-x: hidden;
+    line-height: 1.7;
 }
 
 /* =========================================================
