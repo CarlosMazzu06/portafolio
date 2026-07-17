@@ -683,3 +683,13 @@ body {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 15px rgba(31, 81, 255, 0.2);
 }
+ / *   S P A   V i e w   C l a s s e s   * / 
+ . c a p a - o c u l t a   { 
+         d i s p l a y :   n o n e   ! i m p o r t a n t ; 
+ } 
+ . c a p a - a c t i v a   { 
+         d i s p l a y :   b l o c k ; 
+         a n i m a t i o n :   f a d e I n   0 . 4 s   e a s e - o u t   f o r w a r d s ; 
+ } 
+  
+ 

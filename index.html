@@ -62,9 +62,10 @@
                 style="color: #F8F9FA; font-weight: 800; font-family: 'Poppins', sans-serif; margin-left: 8px; font-size: 1.6rem; letter-spacing: -0.5px; text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);">AGM</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#mundo-hero">Inicio</a></li>
-            <li><a href="#mundo-salud">Higiene Vital</a></li>
-            <li><a href="#mundo-tecnologia">Tecnología</a></li>
+            <li><a href="#" onclick="showLayer('mundo-hero')">Inicio</a></li>
+            <li><a href="#" onclick="showLayer('mundo-historia')">Servicios</a></li>
+            <li><a href="#" onclick="showLayer('mundo-salud')">Higiene Vital</a></li>
+            <li><a href="#" onclick="showLayer('mundo-tecnologia')">Tecnología</a></li>
         </ul>
         <div class="nav-contacts">
             <a href="mailto:aquilesmazzu@gmail.com" class="icon-mail" title="Atención por Correo">
@@ -87,10 +88,9 @@
 
     <main class="scroll-container">
 
-        <!-- MUNDO 1: Hero (Texturas e Imágenes Integradas) -->
-        <section id="mundo-hero" class="mundo mundo-1">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
-                class="hero-image-bg" style="object-fit: cover; opacity: 0.25; z-index: -1;">
+        <!-- MUNDO 1: Hero (Capa Principal) -->
+        <section id="mundo-hero" class="mundo mundo-1 capa-activa">
+            <img src="assets/ac_3.png" class="hero-image-bg" style="object-fit: cover; opacity: 0.25; z-index: -1;">
             <div class="container hero-content glass-card-premium">
                 <span class="badge">Especialistas en Córdoba Capital</span>
                 <h1 class="gradient-text">Climatización y Servicios Eléctricos Profesionales.</h1>
@@ -117,12 +117,12 @@
             </div>
         </section>
 
-        <!-- MUNDO 2: Historia y Autoridad (Detalles editoriales y multimedia) -->
-        <section id="mundo-historia" class="mundo mundo-2">
+        <!-- MUNDO 2: Servicios y Autoridad (Subventana) -->
+        <section id="mundo-historia" class="mundo mundo-2 capa-oculta">
             <div class="container historia-grid">
                 <div class="historia-multimedia">
-                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Ingeniería HVAC Autoridad" class="modern-image shadow-large"
+                    <img src="assets/ac_1.png" alt="Despiece y Mantenimiento Técnico de Split"
+                        class="modern-image shadow-large"
                         style="border-radius:30px; object-fit:cover; max-height:450px; width:100%;">
                 </div>
                 <div class="historia-card glass-panel dark-glass">
@@ -139,8 +139,8 @@
             </div>
         </section>
 
-        <!-- MUNDO 3: Higiene Vital -->
-        <section id="mundo-salud" class="mundo mundo-3">
+        <!-- MUNDO 3: Higiene Vital (Capa de Salud) -->
+        <section id="mundo-salud" class="mundo mundo-3 capa-oculta">
             <div class="container salud-layout">
                 <div class="salud-texto glass-panel dark-glass">
                     <div class="icon-wrapper">
@@ -163,8 +163,8 @@
                     </div>
                 </div>
                 <div class="salud-action glass-panel light-glass">
-                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Limpieza Molecular UV" class="small-hero-img shadow-large"
+                    <img src="assets/ac_2.png" alt="Limpieza Hidrolavado de Serpentinas"
+                        class="small-hero-img shadow-large"
                         style="border-radius:20px; object-fit:cover; max-height:300px; width:100%; margin-bottom:1.5rem;">
                     <h3 class="text-blue">Protegé tu espacio hoy</h3>
                     <p>Desarmamos, limpiamos mediante hidro-sanitización y medimos gases para devolverlo a estándar de
@@ -196,8 +196,8 @@
             </div>
         </section>
 
-        <!-- MUNDO 4: Tecnología & Omni-Contacto (Reintegrando Mail y Teléfono formal) -->
-        <section id="mundo-tecnologia" class="mundo mundo-4">
+        <!-- MUNDO 4: Tecnología y Córdoba Central (Subventana) -->
+        <section id="mundo-tecnologia" class="mundo mundo-4 capa-oculta">
             <div class="container tech-layout">
                 <div class="tech-header glass-title">
                     <h2>Nuestra actividad en imágenes. Instalamos tranquilidad térmica.</h2>
@@ -267,9 +267,38 @@
 
     </main>
 
-    <!-- Script para integración fluida con n8n -->
+    <!-- Script para navegación Multi-Capa (SPA) y n8n -->
     <script>
-        document.getElementById('n8n-form').addEventListener('submit', async function (e) {
+        function showLayer(layerId) {
+            // Ocultar todas las capas
+            const mundos = document.querySelectorAll('.mundo');
+            mundos.forEach(mundo => {
+                mundo.classList.remove('capa-activa');
+                mundo.classList.add('capa-oculta');
+            });
+            // Ocultar mundo cordoba especificamente si no es llamado
+            const cordoba = document.getElementById('mundo-cordoba');
+            if (cordoba && layerId !== 'mundo-cordoba' && layerId !== 'mundo-tecnologia') {
+                cordoba.classList.remove('capa-activa');
+                cordoba.classList.add('capa-oculta');
+            } else if (cordoba && layerId === 'mundo-tecnologia') {
+                // Si entra a techo, mostramos cordoba tambien porque es info secundaria tecnica
+                cordoba.classList.remove('capa-oculta');
+                cordoba.classList.add('capa-activa');
+            }
+
+            // Mostrar capa solicitada
+            const target = document.getElementById(layerId);
+            if (target) {
+                target.classList.remove('capa-oculta');
+                target.classList.add('capa-activa');
+            }
+            // Scrollear al top suavemente
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* Funcionalidad original del formulario n8n */
+        document.getElementById('n8n-form')?.addEventListener('submit', async function (e) {
             e.preventDefault(); // Evitar redirección
             const form = e.target;
             const btn = form.querySelector('button[type="submit"]');
