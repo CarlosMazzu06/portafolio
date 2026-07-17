@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600">
+  <defs>
+    <linearGradient id="bgAC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050d1a"/>
+      <stop offset="100%" stop-color="#0a1a3a"/>
+    </linearGradient>
+    <linearGradient id="led" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0a1a3a"/>
+      <stop offset="50%" stop-color="#1F51FF"/>
+      <stop offset="100%" stop-color="#0a1a3a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="600" rx="30" fill="url(#bgAC)"/>
+  
+  <!-- Abstract Minimal AC Unit -->
+  <rect x="250" y="200" width="700" height="200" rx="40" fill="rgba(255,255,255,0.95)" stroke="#1F51FF" stroke-width="5"/>
+  <rect x="300" y="250" width="600" height="15" rx="7.5" fill="#cbd5e1" />
+  <rect x="300" y="290" width="600" height="15" rx="7.5" fill="#cbd5e1" />
+  
+  <!-- LED Light Glow (Dynamic) -->
+  <rect x="500" y="345" width="200" height="10" rx="5" fill="#1F51FF" opacity="0.9">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite" />
+  </rect>
+  
+  <text x="600" y="140" font-family="'Orbitron', sans-serif" font-size="40" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="2">ESTÁNDAR DE MANTENIMIENTO APLICADO</text>
+  <text x="600" y="480" font-family="sans-serif" font-size="22" font-weight="600" fill="#a5c6ff" text-anchor="middle" letter-spacing="4">VECTOR DE SERVICIO INTEGRAL</text>
+</svg>

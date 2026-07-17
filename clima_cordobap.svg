@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bgCba" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1F51FF"/>
+      <stop offset="50%" stop-color="#0a0d1a"/>
+      <stop offset="100%" stop-color="#E65C00"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" rx="30" fill="url(#bgCba)"/>
+  <!-- Decorative Abstract Lines for Wind/Earth -->
+  <path d="M -100 400 Q 200 100, 400 300 T 900 200" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="40" />
+  <path d="M 0 500 Q 250 200, 500 400 T 800 250" fill="none" stroke="rgba(230, 92, 0, 0.4)" stroke-width="20" />
+  <path d="M 100 600 Q 350 400, 600 500 T 900 150" fill="none" stroke="rgba(31, 81, 255, 0.3)" stroke-width="10" />
+  
+  <rect x="250" y="200" width="300" height="200" rx="20" fill="rgba(0,0,0,0.6)" stroke="white" stroke-width="2"/>
+  <circle cx="400" cy="300" r="100" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+  
+  <text x="400" y="270" font-family="'Orbitron', sans-serif" font-size="28" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="4">ALTA FRICCIÓN</text>
+  <text x="400" y="310" font-family="sans-serif" font-size="34" font-weight="bold" fill="#E65C00" text-anchor="middle">TÉRMICA</text>
+  <text x="400" y="345" font-family="sans-serif" font-size="14" fill="#cbd5e1" text-anchor="middle" letter-spacing="2">VECTOR REPRESENTATIVO</text>
+</svg>
