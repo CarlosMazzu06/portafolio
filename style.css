@@ -683,13 +683,31 @@ body {
     background: rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 15px rgba(31, 81, 255, 0.2);
 }
- / *   S P A   V i e w   C l a s s e s   * / 
- . c a p a - o c u l t a   { 
-         d i s p l a y :   n o n e   ! i m p o r t a n t ; 
+
+/* SPA View Classes */
+.capa-oculta {
+    display: none !important;
+}
+.capa-activa {
+    display: block;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+ i m g   { 
+         m a x - w i d t h :   1 0 0 % ; 
+         h e i g h t :   a u t o ; 
  } 
- . c a p a - a c t i v a   { 
-         d i s p l a y :   b l o c k ; 
-         a n i m a t i o n :   f a d e I n   0 . 4 s   e a s e - o u t   f o r w a r d s ; 
+ h t m l ,   b o d y   { 
+         o v e r f l o w - x :   h i d d e n ; 
+         w i d t h :   1 0 0 % ; 
  } 
   
  
+img {
+    max-width: 100%;
+    height: auto;
+}
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
